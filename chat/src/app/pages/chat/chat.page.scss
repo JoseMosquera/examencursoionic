@@ -1,0 +1,10 @@
+.message {
+    background-color: #cce6ff;
+    // padding: 5px;
+    border-radius: 10px 10px 25px 0px;
+
+    &.owner {
+        background-color: #a1d1ff;
+        border-radius: 10px 10px 0px 25px;
+    }
+}

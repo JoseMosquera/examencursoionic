@@ -1,0 +1,15 @@
+<ion-header>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>¡Introduce tu nombre y comienza a chatear!</h1>
+
+  <form [formGroup]="loginForm" (submit)="submitForm()"> 
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" [disabled]="loginForm.invalid" color="primary">Empezar</ion-button>
+  </form>
+</ion-content>
