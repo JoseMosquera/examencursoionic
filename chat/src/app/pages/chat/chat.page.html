@@ -7,15 +7,15 @@
 
 <ion-content #content class="ion-padding">
   <app-app-loading-feedback [state]="state" (retryEvent)="loadAgain()">
-    <div *ngFor="let message of messages" class="message">
+    <div *ngFor="let message of messages" class="message" [ngClass]="{'owner': message.user === name}">
       <div>
-        <p>{{ message.user }}</p>
+        <p class="userName">{{ message.user }}</p>
       </div>
       <div>
-        <p>{{ message.text }}</p>
+        <p class="text">{{ message.text }}</p>
       </div>
       <div>
-        <p>{{ message.date | date:'medium' }}</p>
+        <p class="date">{{ message.date | date:'medium' }}</p>
       </div>
     </div>
   </app-app-loading-feedback>
@@ -25,7 +25,7 @@
   <form [formGroup]="messageForm" (submit)="sendMessage()">
     <ion-item>
       <ion-input item-left formControlName="message" name="message" placeholder="Mensaje"></ion-input>
-      <ion-button item-right type="submit" slot="end" [disabled]="messageForm.invalid"><ion-icon name="send"></ion-icon></ion-button>
+      <ion-button item-right type="submit" slot="end" [disabled]="messageForm.invalid"><ion-icon color="black" name="send"></ion-icon></ion-button>
     </ion-item>
   </form>
 </ion-footer>

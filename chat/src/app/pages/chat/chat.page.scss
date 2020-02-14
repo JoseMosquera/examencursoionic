@@ -1,10 +1,46 @@
 .message {
     background-color: #cce6ff;
-    // padding: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
     border-radius: 10px 10px 25px 0px;
+    width: 200px;
+    float: left;
+
+    div>p.userName {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        border-radius: 10px 10px 0px 25px;
+        font-weight: bold;
+    }
+
+    div>p.text {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    div>p.date {
+        margin-top: 10px;
+        margin-bottom: 0px;
+        font-size: 12px;
+    }
 
     &.owner {
         background-color: #a1d1ff;
         border-radius: 10px 10px 0px 25px;
+        float: right;
+
+        div {
+            padding-right: 10px;
+        }
+
+        div>p {
+            text-align: right;
+        }
     }
+}
+
+.btnSendMsg {
+    color: white;
 }

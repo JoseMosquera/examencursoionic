@@ -5,18 +5,20 @@ import { webSocket } from "rxjs/webSocket";
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 
 const subject = webSocket(environment.webSocket);
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService {
+export class ChatService implements CanActivate{
 
   user: User
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   setName(user: User) {
@@ -30,5 +32,14 @@ export class ChatService {
 
   getMessages(): Observable<Message[]> {
     return this.http.get(`${environment.apiUrl}/messages`) as Observable<Message[]>
+  }
+
+  canActivate() {
+    if (this.user) {
+      return true
+    } else {
+      this.router.navigateByUrl('/login')
+      return false
+    }
   }
 }
